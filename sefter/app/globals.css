@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #171717;
+  --app-max-width: 72rem;
+  --touch-min: 2.75rem; /* 44px */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobil yatay kaydırma şeritlerini gizle (filtre chip'leri vb.) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* iOS safe area */
+.pb-safe-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Dokunma hedefleri — mobilde en az ~44px */
+.touch-target {
+  min-height: var(--touch-min);
+  min-width: var(--touch-min);
+}
+
+/* Responsive sayfa kabuğu */
+.app-shell {
+  width: 100%;
+  max-width: var(--app-max-width);
+  margin-inline: auto;
+}
+
+/* Tipografi ölçekleri */
+.heading-hero {
+  font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
+  line-height: 1.15;
+}
+
+.heading-section {
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 1.75rem);
+}
+
+.body-copy {
+  font-size: clamp(0.875rem, 0.4vw + 0.8rem, 1.05rem);
+}
+
+/* Tablolar: mobilde yatay scroll sarmalayıcı */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
